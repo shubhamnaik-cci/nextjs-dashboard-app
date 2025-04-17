@@ -88,7 +88,9 @@ export async function updateInvoice(id: string, formData: FormData) {
         INSERT INTO invoices (customer_id, amount, status, date)
         VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
       `;
-    } catch (error) {
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars 
+    catch (error) {
       return {
         message: 'Database Error: Failed to Create Invoice.',
         errors: {},

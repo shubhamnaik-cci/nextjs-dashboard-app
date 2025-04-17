@@ -100,13 +100,15 @@ export async function GET() {
   try {
     // ✅ Ensure uuid extension is created only once
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-
+    
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
     const result = await sql.begin((sql) => [
       seedUsers(),
       seedCustomers(),
       seedInvoices(),
       seedRevenue(),
     ]);
+
 
     return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
